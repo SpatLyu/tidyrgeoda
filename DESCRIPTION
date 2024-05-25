@@ -1,0 +1,25 @@
+Package: tidyrgeoda
+Title: A tidy interface for rgeoda
+Version: 0.1.0
+Authors@R: 
+    person("Wenbo", "Lv", , "lyu.geosocial@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0009-0002-6003-3800"))
+Description: An interface for 'rgeoda' to integrate with 'sf' objects and the 'tidyverse'.
+License: GPL-3 
+URL: https://github.com/SpatLyu/tidyrgeoda
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Imports: 
+    sf,
+    rgeoda,
+    magrittr,
+    dplyr,
+    ggplot2
+Suggests:
+    tmap,
+    rlang,
+    testthat (>= 3.0.0)
+Depends: 
+    R (>= 4.2.0)
+Config/testthat/edition: 3
