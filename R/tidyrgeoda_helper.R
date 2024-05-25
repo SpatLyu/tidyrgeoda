@@ -19,7 +19,7 @@
 #' guerry_path = system.file("extdata", "Guerry.shp", package = "rgeoda")
 #' guerry = read_sf(guerry_path)
 #' guerry |>
-#' dplyr::mutate(lisa = st_local_moran(guerry,'Crm_prs')) |>
+#'  dplyr::mutate(lisa = st_local_moran(guerry,'Crm_prs')) |>
 #'  dplyr::select(lisa) |>
 #'  ggplot() +
 #'  geom_sf(aes(fill = lisa),lwd = .1,color = 'grey') +
