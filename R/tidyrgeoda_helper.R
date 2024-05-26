@@ -33,7 +33,6 @@ scale_fill_lisa = \(name = 'LISA',...){
                                "High-Low","Undefined","Isolated")))
 }
 
-
 #' @title Univariate Spatial Stratification
 #' @author Wenbo Lv
 #' @description
