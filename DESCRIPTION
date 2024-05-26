@@ -16,7 +16,8 @@ Imports:
     magrittr,
     dplyr,
     tibble,
-    ggplot2
+    ggplot2,
+    stringr
 Suggests:
     tmap,
     rlang

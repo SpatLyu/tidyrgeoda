@@ -275,6 +275,49 @@ summary.Weight = \(object, ...) {
   return(output)
 }
 
+#' @title Read A Geoda File(.gal,.gwt,.swm)
+#' @author Wenbo Lv
+#' @description
+#' Create a spatial weights object from a geoda file
+#'
+#' @param file_path The file paht of the geoda file.
+#' @param id_vec (optional),the id_vec is the id values used in the geoda file.
+#'
+#' @return A weights object
+#' @importFrom stringr str_sub
+#' @importFrom stringr str_to_lower
+#' @importFrom rgeoda read_gal
+#' @importFrom rgeoda read_gwt
+#' @importFrom rgeoda read_swm
+#' @export
+read_geoda =\(file_path,id_vec = NULL){
+  filetype = stringr::str_sub(file_path,-3,-1) %>%
+    stringr::str_to_lower()
+  switch (filetype,
+    'gal' = {
+      if (is.null(id_vec)){
+        wt = rgeoda::read_gal(file_path)
+      } else {
+        wt = rgeoda::read_gal(file_path,id_vec)
+      }
+    },
+    'gwt' = {
+      if (is.null(id_vec)){
+        wt = rgeoda::read_gwt(file_path)
+      } else {
+        wt = rgeoda::read_gwt(file_path,id_vec)
+      }
+    },
+    'swm' = {
+      if (is.null(id_vec)){
+        wt = rgeoda::read_swm(file_path)
+      } else {
+        wt = rgeoda::read_swm(file_path,id_vec)
+      }
+    }
+  )
+  return(wt)
+}
 
 #' @title Spatial Lag
 #' @author Wenbo Lv
