@@ -236,10 +236,10 @@ st_weights = \(sfj,weight = NULL,...){
 }
 
 #' @title Summary of Spatial Weights
-#' @description Warpping the summary() function for spatial weights
+#' @description Warpping the `summary()` function for spatial weights
 #' @author Wenbo Lv
 #'
-#' @param object A Weight object
+#' @param wt A Weight object
 #' @param ... summary optional parameters
 #' @return A summary description of an instance of Weight-class
 #' @importFrom tibble tibble
@@ -252,16 +252,18 @@ st_weights = \(sfj,weight = NULL,...){
 #' st_summary(queen_w)
 #' }
 #' @export
-st_summary.Weight = \(object, ...) {
-  gda_w = object
+st_summary = \(wt, ...) {
+  stopifnot("wt must be `Weight` object" = inherits(qw,"Weight"))
+
+  gda_w = wt
   name = c("number of observations:",
-            "is symmetric: ",
-            "sparsity:",
-            "# min neighbors:",
-            "# max neighbors:",
-            "# mean neighbors:",
-            "# median neighbors:",
-            "has isolates:")
+           "is symmetric: ",
+           "sparsity:",
+           "# min neighbors:",
+           "# max neighbors:",
+           "# mean neighbors:",
+           "# median neighbors:",
+           "has isolates:")
   value = c(as.character(gda_w$num_obs),
             as.character(gda_w$is_symmetric),
             as.character(gda_w$sparsity),
@@ -317,6 +319,28 @@ read_geoda =\(file_path,id_vec = NULL){
     }
   )
   return(wt)
+}
+
+#' @title Save Spatial Weights
+#' @author Wenbo Lv
+#' @description
+#' Save spatial weights to a file
+#'
+#' @param wt A Weight object
+#' @param dsn The path of an output weights file
+#' @param layer (optional) The name of the layer of input dataset,efault is `""`.
+#' @param id_vec (optional) Defines the unique value of each observation when saving a
+#' weights file. Default is `tibble::tibble(id_v = 1:wt$num_obs)`.
+#'
+#' @return A boolean value indicates if save successfully or failed
+#' @importFrom tibble tibble
+#' @importFrom rgeoda save_weights
+#' @export
+write_geoda = \(wt,dsn,layer = NULL,id_vec = NULL){
+  stopifnot("wt must be `Weight` object" = inherits(qw,"Weight"))
+  if (is.null(layer)) {layer = ""}
+  if (is.null(id_vec)) {id_vec = tibble::tibble(id_v = 1:wt$num_obs)}
+  rgeoda::save_weights(wt,id_vec,dsn,layer)
 }
 
 #' @title Spatial Lag

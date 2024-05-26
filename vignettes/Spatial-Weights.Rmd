@@ -18,6 +18,115 @@ knitr::opts_chunk$set(echo = TRUE,
                       comment = "##")
 ```
 
+### Load spatial data and nessary  r package.
+
 ```{r}
+library(sf)
+library(dplyr)
 library(tidyrgeoda)
+
+guerry = read_sf(system.file("extdata","Guerry.shp",package = "rgeoda"))
+head(guerry)
+```
+
+## Contiguity Weights
+
+Contiguity means that two spatial units share a common border of non-zero length. Operationally, we can further distinguish between a rook and a queen criterion of contiguity, in analogy to the moves allowed for the such-named pieces on a chess board. The queen criterion is somewhat more encompassing and defines neighbors as spatial units sharing a common edge or a common vertex.The rook criterion defines neighbors by the existence of a common edge between two spatial units.
+
+To create a Queen contiguity weights, one can call the function
+
+```r
+st_contiguity_weights(sfj,queen = TRUE)
+``` 
+
+```{r}
+qw = st_contiguity_weights(guerry)
+st_summary(qw)
+```
+
+
+If `queen` is assigned to `FALSE`,`tidyrgeoda` will invoke `rgeoda` to create a Rook contiguity weights.
+
+```{r}
+rw = st_contiguity_weights(guerry,queen = F)
+st_summary(rw)
+```
+
+You can also create high order of contiguity weights by changing `order` to more than 1.
+
+```{r}
+rw = st_contiguity_weights(guerry,queen = F,order = 2)
+st_summary(rw)
+```
+
+Create contiguity weights with 1-order and 2-order together:
+
+```{r}
+rw2 = st_contiguity_weights(guerry,queen = F,order = 2,
+                            include_lower_order = T)
+st_summary(rw2)
+```
+
+## Distance Based Weights
+
+The most straightforward spatial weights matrix constructed from a distance measure is obtained when i and j are considered neighbors whenever j falls within a critical distance band from i.You can use `st_distance_weights()` to achieve the Distance Based Weights.
+
+```{r}
+dw = st_distance_weights(guerry)
+st_summary(dw)
+```
+
+The distance threshold default is generate use `rgeoda::min_distthreshold()`,but you can assign `dist_thres` argument by hand.
+
+```{r}
+dw2 = st_distance_weights(guerry,dist_thres = 1.5e5)
+st_summary(dw2)
+```
+
+## K-Nearest Neighbor Weights
+
+A special case of distance based weights is K-Nearest neighbor weights, in which every observation will have exactly k neighbors. It can be used to avoid the problem of isolate in distance-band weights when a smaller cut-off distance is used. To create a KNN weights, we can call the function `st_knn_weights()`:
+
+```{r}
+knn6_w = st_knn_weights(guerry, 6)
+st_summary(knn6_w)
+```
+
+## Kernel Weights
+
+Kernel weights apply kernel function to determine the distance decay in the derived continuous weights kernel. The kernel weights are defined as a function $K_{z}$ of the ratio between the distance $d_{ij}$ from $i$ to $j$, and the bandwidth $h_i$, with $z = \frac{d_{ij}}{h_i}$. 
+
+The kernel functions include
+
+* `triangular`
+* `uniform`
+* `quadratic`
+* `epanechnikov`
+* `quartic`
+* `gaussian`
+
+Two functions are provided in `tidyrgeoda` to create kernel weights.
+
+#### Use `st_kernel_weights()` for Kernel Weights with afixedbandwidth
+
+```{r}
+kernel_w = st_kernel_weights(guerry,"uniform")
+st_summary(kernel_w)
+```
+
+#### Use `st_kernel_knn_weights()` for Kernel Weights with adaptive bandwidth
+
+```{r}
+adptkernel_w = st_kernel_knn_weights(guerry, 6, "uniform")
+st_summary(adptkernel_w)
+```
+
+## Create Spatial Weights object by `st_weights()`
+
+`st_weights()` is a wrapper function for all above `st_*_weights`,you can use it like:
+
+```{r}
+qw = st_weights(guerry,weight = 'contiguity')
+qw
+st_summary(qw)
 ```
