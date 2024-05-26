@@ -1,0 +1,31 @@
+---
+title: "Local-Indicators-of-Spatial-Association"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Local-Indicators-of-Spatial-Association}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      dpi = 300,
+                      warning = FALSE,
+                      message = FALSE,
+                      out.width = "100%",
+                      out.height = "100%",
+                      fig.align = 'center',
+                      comment = "##")
+```
+
+### Load spatial data and nessary r package.
+
+```{r}
+library(sf)
+library(dplyr)
+library(tidyrgeoda)
+
+guerry = read_sf(system.file("extdata","Guerry.shp",package = "rgeoda"))
+head(guerry)
+```
+

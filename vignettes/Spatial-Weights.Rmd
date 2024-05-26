@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE,
                       comment = "##")
 ```
 
-### Load spatial data and nessary  r package.
+### Load spatial data and nessary r package.
 
 ```{r}
 library(sf)

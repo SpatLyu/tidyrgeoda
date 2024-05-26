@@ -253,7 +253,7 @@ st_weights = \(sfj,weight = NULL,...){
 #' }
 #' @export
 st_summary = \(wt, ...) {
-  stopifnot("wt must be `Weight` object" = inherits(qw,"Weight"))
+  stopifnot("wt must be `Weight` object" = inherits(wt,"Weight"))
 
   gda_w = wt
   name = c("number of observations:",
@@ -337,7 +337,7 @@ read_geoda =\(file_path,id_vec = NULL){
 #' @importFrom rgeoda save_weights
 #' @export
 write_geoda = \(wt,dsn,layer = NULL,id_vec = NULL){
-  stopifnot("wt must be `Weight` object" = inherits(qw,"Weight"))
+  stopifnot("wt must be `Weight` object" = inherits(wt,"Weight"))
   if (is.null(layer)) {layer = ""}
   if (is.null(id_vec)) {id_vec = tibble::tibble(id_v = 1:wt$num_obs)}
   rgeoda::save_weights(wt,id_vec,dsn,layer)
@@ -381,4 +381,44 @@ st_lag = \(sfj,varcol,wt = NULL){
     dplyr::pull()
 
   return(splag)
+}
+
+#' @title Local Neighbor Match Test
+#' @author Wenbo Lv
+#' @description
+#' The local neighbor match test is to assess the extent of overlap between k-nearest neighbors
+#' in geographical space and k-nearest neighbors in multi-attribute space.
+#'
+#' @param sfj An sf (simple feature) object.
+#' @param varcol The variables selected to run local neighbor match test.
+#' @param k A positive integer number for k-nearest neighbors searching.
+#' @param unit (optional) The unit for calculating spatial distance, can be
+#' 'km'(default) or 'mile'.
+#' @param scale_method (optional) One of the scaling methods 'raw', 'standardize', 'demean', 'mad',
+#' 'range_standardize', 'range_adjust' to apply on input data. Default is 'standardize' (Z-score normalization).
+#' @param distance_method (optional) The type of distance metrics used to measure the distance between input data.
+#' Options are 'euclidean', 'manhattan'. Default is 'euclidean'.
+#' @param power (optional) The power (or exponent) of a number says how many times to use
+#' the number in a multiplication.
+#' @param is_inverse (optional) FALSE (default) or TRUE, apply inverse on distance value.
+#'
+#' @return A tibble with two columns "Cardinality" and "Probability".
+#' @export
+#'
+#' @examples
+#' library(sf)
+#' guerry = read_sf(system.file("extdata","Guerry.shp",package = "rgeoda"))
+#' st_lnmt(guerry,c('Crm_prs','Crm_prp','Litercy','Donatns',
+#' 'Infants','Suicids'),6)
+st_lnmt = \(sfj,varcol,k,unit = 'km',scale_method = "standardize",
+            distance_method = "euclidean",power = 1,is_inverse = FALSE){
+  stopifnot("sfj must be `sf` object" = inherits(sfj,"sf"))
+
+  is_arc = ifelse(sf::st_is_longlat(sfj),TRUE,FALSE)
+  is_mile = ifelse(unit=='mile',TRUE,FALSE)
+  df = sfj %>%
+    dplyr::select(dplyr::all_of(varcol))
+  nbr_test = rgeoda::neighbor_match_test(df,k,scale_method,distance_method,
+                                         power,is_inverse,is_arc,is_mile)
+  return(tibble::tibble(nbr_test))
 }

@@ -15,13 +15,13 @@ You can install the development version of `tidyrgeoda` like so:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("SpatLyu/tidyrgeoda")
+devtools::install_github("SpatLyu/tidyrgeoda",build_vignettes = T)
 ```
 
 ## Example
 
 This is a basic example which shows you how to use `tidyrgeoda` to
-create a `spatial weight  matrix` and calculate the `local_moran`:
+create a `spatial weight matrix` and calculate the `local_moran`:
 
 ``` r
 library(sf)
