@@ -235,6 +235,47 @@ st_weights = \(sfj,weight = NULL,...){
   return(wt)
 }
 
+#' @title Summary of Spatial Weights
+#' @description Override the summary() function for spatial weights
+#' @author Wenbo Lv
+#'
+#' @param object A Weight object
+#' @param ... summary optional parameters
+#' @return A summary description of an instance of Weight-class
+#' @importFrom tibble tibble
+#' @examples
+#' \dontrun{
+#' library(sf)
+#' guerry_path = system.file("extdata", "Guerry.shp", package = "rgeoda")
+#' guerry = read_sf(guerry_path)
+#' queen_w = tidyrgeoda::st_weights(guerry,'contiguity')
+#' summary(queen_w)
+#' }
+#' @export
+summary.Weight = \(object, ...) {
+  gda_w = object
+  name = c("number of observations:",
+            "is symmetric: ",
+            "sparsity:",
+            "# min neighbors:",
+            "# max neighbors:",
+            "# mean neighbors:",
+            "# median neighbors:",
+            "has isolates:")
+  value = c(as.character(gda_w$num_obs),
+            as.character(gda_w$is_symmetric),
+            as.character(gda_w$sparsity),
+            as.character(gda_w$min_neighbors),
+            as.character(gda_w$max_neighbors),
+            as.character(gda_w$mean_neighbors),
+            as.character(gda_w$median_neighbors),
+            as.character(gda_w$has_isolates))
+  output = tibble::tibble(name, value)
+
+  return(output)
+}
+
+
 #' @title Spatial Lag
 #' @author Wenbo Lv
 #' @description
