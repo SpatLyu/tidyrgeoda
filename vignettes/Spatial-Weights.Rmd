@@ -1,0 +1,23 @@
+---
+title: "Spatial-Weights"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Spatial-Weights}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      dpi = 300,
+                      warning = FALSE,
+                      message = FALSE,
+                      out.width = "100%",
+                      out.height = "100%",
+                      fig.align = 'center',
+                      comment = "##")
+```
+
+```{r}
+library(tidyrgeoda)
+```

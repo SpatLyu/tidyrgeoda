@@ -236,7 +236,7 @@ st_weights = \(sfj,weight = NULL,...){
 }
 
 #' @title Summary of Spatial Weights
-#' @description Override the summary() function for spatial weights
+#' @description Warpping the summary() function for spatial weights
 #' @author Wenbo Lv
 #'
 #' @param object A Weight object
@@ -249,10 +249,10 @@ st_weights = \(sfj,weight = NULL,...){
 #' guerry_path = system.file("extdata", "Guerry.shp", package = "rgeoda")
 #' guerry = read_sf(guerry_path)
 #' queen_w = tidyrgeoda::st_weights(guerry,'contiguity')
-#' summary(queen_w)
+#' st_summary(queen_w)
 #' }
 #' @export
-summary.Weight = \(object, ...) {
+st_summary.Weight = \(object, ...) {
   gda_w = object
   name = c("number of observations:",
             "is symmetric: ",

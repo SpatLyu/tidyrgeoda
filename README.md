@@ -44,6 +44,10 @@ library(tidyverse)
 
 ``` r
 library(tidyrgeoda)
+## Welcome to tidyrgeoda 0.1.0!
+```
+
+``` r
 
 guerry = read_sf(system.file("extdata","Guerry.shp",package = "rgeoda"))
 guerry %>% 
