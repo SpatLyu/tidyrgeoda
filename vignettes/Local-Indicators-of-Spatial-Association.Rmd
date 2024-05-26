@@ -12,8 +12,6 @@ knitr::opts_chunk$set(echo = TRUE,
                       dpi = 300,
                       warning = FALSE,
                       message = FALSE,
-                      out.width = "100%",
-                      out.height = "100%",
                       fig.align = 'center',
                       comment = "##")
 ```
@@ -23,9 +21,84 @@ knitr::opts_chunk$set(echo = TRUE,
 ```{r}
 library(sf)
 library(dplyr)
+library(ggplot2)
 library(tidyrgeoda)
 
 guerry = read_sf(system.file("extdata","Guerry.shp",package = "rgeoda"))
 head(guerry)
 ```
 
+## Local Indicators of Spatial Association–LISA
+
+`tidyrgeoda` provides following methods for local spatial autocorrelation statistics:
+
+* Local Moran: `st_local_moran()`, `st_local_moran_eb()`, `st_local_bimoran()`
+* Local Geary: `st_local_geary()`, `st_local_multigeary()`
+* Local Getis-Ord statistics: `st_local_g()` and `st_local_gstar()`
+* Local Join Count: `st_local_joincount()`, `st_local_bijoincount()`, `st_local_multijoincount()`.
+* Quantile LISA: `st_local_quantilelisa()`, `st_local_multiquantilelisa()`
+* Local Neighbor Match Test: `st_lnmt`
+
+For more information about the local spatial autocorrelation statisticis, please read Dr. Luc Anselin’s lab notes [here](http://geodacenter.github.io/workbook/6a_local_auto/lab6a.html).
+
+Now,we use the local moran as an example:
+
+*significance level at 0.05:*
+
+```{r}
+guerry %>% 
+  mutate(lisa = st_local_moran(.,'Crm_prs',
+                               wt = st_contiguity_weights(.),
+                               significance_cutoff = 0.05)) %>% 
+  select(lisa) -> g_lm95
+g_lm95
+ggplot(data = g_lm95) +
+  geom_sf(aes(fill = lisa),lwd = .1,color = 'grey') +
+  scale_fill_lisa(name = 'LISA95') +
+  theme_bw() +
+  theme(
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    axis.title = element_blank()
+  )
+```
+
+*significance level at 0.01:*
+
+```{r}
+guerry %>% 
+  mutate(lisa = st_local_moran(.,'Crm_prs',
+                               wt = st_contiguity_weights(.),
+                               significance_cutoff = 0.01)) %>% 
+  select(lisa) -> g_lm99
+g_lm99
+ggplot(data = g_lm99) +
+  geom_sf(aes(fill = lisa),lwd = .1,color = 'grey') +
+  scale_fill_lisa(name = 'LISA99') +
+  theme_bw() +
+  theme(
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    axis.title = element_blank()
+  )
+```
+
+*Bivariate Local Moran Statistics*
+
+```{r}
+bi = guerry %>% 
+  mutate(lisa = st_local_bimoran(.,c('Crm_prs','Litercy'),
+                               wt = st_contiguity_weights(.),
+                               significance_cutoff = 0.05)) %>% 
+  select(lisa)
+bi
+ggplot(data = bi) +
+  geom_sf(aes(fill = lisa),lwd = .1,color = 'grey') +
+  scale_fill_lisa(name = 'bi-localmoran') +
+  theme_bw() +
+  theme(
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    axis.title = element_blank()
+  )
+```
