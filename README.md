@@ -1,13 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# tidyrgeoda <img src="man/figures/logo.png" align="right" height="139"/></a>
+# tidyrgeoda <img src="man/figures/logo.png" align="right" height="140"/>
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of tidyrgeoda is to provide an interface for ‘rgeoda’ to
-integrate with ‘sf’ objects and the ‘tidyverse’.
+The goal of **tidyrgeoda** is to provide an interface for **rgeoda** to
+integrate with **sf** objects and the **tidyverse**.
 
 ## Installation
 
