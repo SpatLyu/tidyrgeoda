@@ -29,7 +29,7 @@
 #'
 #' @name gzma
 #' @format \code{gsma}: An `sf` tibble of social space quality score in guangzhou metropolitan
-#' areas(2010).With 118 rows and 32 variables, where the last column is `geometry`.
+#' areas(2010) with 118 rows and 32 variables, where the last column is `geometry`.
 #'
 #' @docType data
 #' @keywords dataset social space quality score
