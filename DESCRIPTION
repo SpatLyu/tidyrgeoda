@@ -26,3 +26,4 @@ Suggests:
 Depends: 
     R (>= 4.2.0)
 VignetteBuilder: knitr
+LazyData: true

@@ -1,0 +1,39 @@
+#' @title Guangzhou Metropolitan Social Space Quality Score Data
+#'
+#' @description
+#' Data of Social Space Quality Score in Guangzhou Metropolitan Areas of China (2010)
+#'
+#' @name gzma
+#' @format \code{gsma}: An `sf` tibble of social space quality score in guangzhou metropolitan
+#' areas(2010).With 118 rows and 32 variables, where the last column is `geometry`.The actual
+#' representation of each column is as follows:
+#' \code{SName_EN} street name; \code{DName_EN} district name;
+#' \code{SSQ_Score} total score of social space quality; \code{PS_Score} population stability score;
+#' \code{EL_Score} educational level score; \code{OH_Score} occupational hierarchy score;
+#' \code{IL_Score} income level score; \code{FPOP_Pro} proportion of foreign population;
+#' \code{TenantsPro} proportion of tenants; \code{NoSchPro} proportion of no schooling;
+#' \code{PSchPRO} proportion of primary school education; \code{JHSchPro} proportion of junior high school education;
+#' \code{HSchDipPro} proportion of high school diploma; \code{CDegreePro} proportion of college degree;
+#' \code{UnderG_Pro} proportion of undergraduate; \code{PostG_Pro} proportion of postgraduate;
+#' \code{RPSOPMOPro} proportion of responsible persons of state organs, party and mass organizations and institutions;
+#' \code{PCE_Pro} proportion of person in charge of enterprise; \code{ProTechPro} proportion of professional and technical personnel;
+#' \code{ClerkPro} proportion of clerk; \code{BusSer_Pro} proportion of business and service personnel;
+#' \code{AFAFP_Pro} proportion of agriculture, forestry, animal husbandry and fishery personnel;
+#' \code{OPTE_Pro} proportion of operators of production and transportation equipment;
+#' \code{UnemPeoPro} proportion of households with unemployed people;
+#' \code{B100_Pro} proportion of households with below 100 yuan;
+#' \code{100_200Pro} proportion of households with 100-200yuan;
+#' \code{200_500Pro} proportion of households with 200-500yuan;
+#' \code{500_1000P} proportion of households with 500-1000yuan;
+#' \code{1000_1500P} proportion of households with 1000-1500yuan;
+#' \code{1500_2000P} proportion of households with 1500-2000yuan;
+#' \code{2000_3000P} proportion of households with 2000-3000yuan;
+#' \code{A3000_Pro} proportion of households with above 3000yuan;
+#' The subdistrict boundary is drawn by with reference to the Atlas of  Community Network ResponsibilityDistrict of  Urban Management  Division in Guangzhou.
+#'
+#' @docType data
+#' @keywords dataset social space quality score
+#' @references
+#' WANG Yang，ZHANG Hong’ou，YE Yuyao，WU Qitao，JIN Lixia．Comprehensive Evaluation and Distribution Pattern of Social
+#' Space Quality in Guangzhou, China[J]．Tropical Geography，2017，37（1）：25-32．
+"gzma"
