@@ -1,5 +1,5 @@
 ---
-title: "Spatial-Weights"
+title: "Spatial Weights in tidyrgeoda"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Spatial-Weights}

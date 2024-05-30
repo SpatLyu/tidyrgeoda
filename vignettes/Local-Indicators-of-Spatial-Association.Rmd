@@ -1,5 +1,5 @@
 ---
-title: "Local-Indicators-of-Spatial-Association"
+title: "Local Indicators of Spatial Association(LISA)"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Local-Indicators-of-Spatial-Association}
