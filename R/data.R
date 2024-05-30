@@ -1,11 +1,7 @@
 #' @title Guangzhou Metropolitan Social Space Quality Score Data
 #'
 #' @description
-#' Data of Social Space Quality Score in Guangzhou Metropolitan Areas of China (2010)
-#'
-#' @name gzma
-#' @format \code{gsma}: An `sf` tibble of social space quality score in guangzhou metropolitan
-#' areas(2010).With 118 rows and 32 variables, where the last column is `geometry`.The actual
+#' Data of Social Space Quality Score in Guangzhou Metropolitan Areas of China (2010). The actual
 #' representation of each column is as follows:
 #' \code{SName_EN} street name; \code{DName_EN} district name;
 #' \code{SSQ_Score} total score of social space quality; \code{PS_Score} population stability score;
@@ -30,6 +26,10 @@
 #' \code{2000_3000P} proportion of households with 2000-3000yuan;
 #' \code{A3000_Pro} proportion of households with above 3000yuan;
 #' The subdistrict boundary is drawn by with reference to the Atlas of  Community Network ResponsibilityDistrict of  Urban Management  Division in Guangzhou.
+#'
+#' @name gzma
+#' @format \code{gsma}: An `sf` tibble of social space quality score in guangzhou metropolitan
+#' areas(2010).With 118 rows and 32 variables, where the last column is `geometry`.
 #'
 #' @docType data
 #' @keywords dataset social space quality score
