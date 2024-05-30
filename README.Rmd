@@ -26,7 +26,7 @@ You can install the development version of `tidyrgeoda` like so:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("SpatLyu/tidyrgeoda",build_vignettes = T)
+devtools::install_github("SpatLyu/tidyrgeoda",build_vignettes = T,dep = T)
 ```
 
 ## Example
