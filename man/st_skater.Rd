@@ -60,5 +60,5 @@ guerry_clusters = st_skater(guerry,c('Crm_prs','Crm_prp','Litercy','Donatns','In
 guerry_clusters
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

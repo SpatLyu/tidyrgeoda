@@ -1,5 +1,5 @@
 #' @title LISA Fill Scales
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' Provide `ggplot2` fill scales like geoda software.Now it achieve by using
 #' `?ggplot2::scale_fill_manual()`.Another achieve can see
@@ -27,14 +27,16 @@
 scale_fill_lisa = \(name = 'LISA',...){
   ggplot2::scale_fill_manual(
     name,...,
-    values = stats::setNames(c("#eeeeee","#FF0000","#0000FF","#a7adf9",
-                               "#f4ada8","#464646","#999999"),
-                             c("Not significant","High-High","Low-Low","Low-High",
-                               "High-Low","Undefined","Isolated")))
+    values = stats::setNames(c("#eeeeee","#348124","#FF0000","#0000FF","#a7adf9",
+                               "#f4ada8","#464646","#999999","#336ea1","#fddbc7",
+                               "#67adc7"),
+                             c("Not significant","Significant","High-High","Low-Low","Low-High",
+                               "High-Low","Undefined","Isolated","Positive","Other Positive",
+                               "Negative")))
 }
 
 #' @title Univariate Spatial Stratification
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' Univariate Spatial Stratification by invoking rgeoda's *_breaks function.
 #'

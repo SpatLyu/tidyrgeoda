@@ -74,5 +74,5 @@ guerry_clusters = st_maxp_tabu(guerry,c('Crm_prs','Crm_prp','Litercy','Donatns',
 guerry_clusters
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

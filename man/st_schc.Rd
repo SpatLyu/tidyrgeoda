@@ -61,5 +61,5 @@ guerry_clusters = st_schc(guerry,c('Crm_prs','Crm_prp','Litercy','Donatns','Infa
 guerry_clusters
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

@@ -38,5 +38,5 @@ guerry = sf::read_sf(guerry_path)
 st_distance_weights(guerry)
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

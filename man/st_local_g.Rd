@@ -47,5 +47,5 @@ guerry = sf::read_sf(guerry_path)
 st_local_g(guerry,'Crm_prp')
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

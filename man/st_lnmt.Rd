@@ -50,5 +50,5 @@ st_lnmt(guerry,c('Crm_prs','Crm_prp','Litercy','Donatns',
 'Infants','Suicids'),6)
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

@@ -51,5 +51,5 @@ guerry = sf::read_sf(guerry_path)
 st_kernel_knn_weights(guerry,6)
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

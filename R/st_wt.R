@@ -1,5 +1,5 @@
 #' @title Contiguity Spatial Weights
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' Create a contiguity spatial weights with options of "queen", "order",
 #' "include lower order" and "precision threshold"
@@ -38,7 +38,7 @@ st_contiguity_weights = \(sfj,queen = TRUE,order = 1,
 }
 
 #' @title Distance-based Spatial Weights
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description Create a distance-based weights
 #'
 #' @param sfj An sf (simple feature) object.
@@ -75,7 +75,7 @@ st_distance_weights = \(sfj,unit = 'km',dist_thres = NULL,
 }
 
 #' @title K-Nearest Neighbors-based Spatial Weights
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description Create a k-nearest neighbors based spatial weights
 #'
 #' @param sfj An sf (simple feature) object.
@@ -107,7 +107,7 @@ st_knn_weights = \(sfj,k,power = 1,is_inverse = FALSE,unit = 'km'){
 }
 
 #' @title Distance-based Kernel Spatial Weights
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' Create a kernel weights by specifying a bandwidth and a kernel method
 #'
@@ -150,7 +150,7 @@ st_kernel_weights = \(sfj,kernel = "gaussian",bandwidth = NULL,power = 1,
 }
 
 #' @title K-NN Kernel Spatial Weights
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' Create a kernel weights by specifying k-nearest neighbors and a kernel method
 #'
@@ -193,7 +193,7 @@ st_kernel_knn_weights = \(sfj,k,kernel = "gaussian",power = 1,adaptive_bandwidth
 }
 
 #' @title Construct Spatial Weights
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description Create a spatial weights
 #'
 #' @param sfj An sf (simple feature) object.
@@ -237,7 +237,7 @@ st_weights = \(sfj,weight = NULL,...){
 
 #' @title Summary of Spatial Weights
 #' @description Warpping the `summary()` function for spatial weights
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param wt A Weight object
 #' @param ... summary optional parameters
@@ -278,7 +278,7 @@ st_summary = \(wt, ...) {
 }
 
 #' @title Read A Geoda File(.gal,.gwt,.swm)
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' Create a spatial weights object from a geoda file
 #'
@@ -322,7 +322,7 @@ read_geoda =\(file_path,id_vec = NULL){
 }
 
 #' @title Save Spatial Weights
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' Save spatial weights to a file
 #'
@@ -344,7 +344,7 @@ write_geoda = \(wt,dsn,layer = NULL,id_vec = NULL){
 }
 
 #' @title Spatial Lag
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' Compute the spatial lag for idx-th observation using selected variable and
 #' spatial weights matrix
@@ -384,7 +384,7 @@ st_lag = \(sfj,varcol,wt = NULL){
 }
 
 #' @title Local Neighbor Match Test
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' The local neighbor match test is to assess the extent of overlap between k-nearest neighbors
 #' in geographical space and k-nearest neighbors in multi-attribute space.

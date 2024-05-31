@@ -27,5 +27,5 @@ st_summary(queen_w)
 }
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

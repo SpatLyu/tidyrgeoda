@@ -1,5 +1,5 @@
 #' @title Spatial C(K)luster Analysis by Tree Edge Removal(SKATER)
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' A wrapper function for `rgeoda::skater()`.SKATER forms clusters by spatially
 #' partitioning data that has similar values for features of interest.
@@ -54,7 +54,7 @@ st_skater = \(sfj,varcol,k,wt = NULL,boundvar = NULL,min_bound = 0,scale_method 
 }
 
 #' @title Regionalization with dynamically constrained agglomerative clustering and partitioning(REDCAP)
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' A wrapper function for `rgeoda::redcap()`.REDCAP (Regionalization with dynamically constrained agglomerative clustering and partitioning)
 #' is developed by D. Guo (2008). Like SKATER, REDCAP starts from building a spanning tree with 4 different ways (single-linkage, average-linkage,
@@ -116,7 +116,7 @@ st_redcap = \(sfj,varcol,k,wt = NULL,boundvar = NULL,method = "fullorder-average
 }
 
 #' @title Spatially Constrained Hierarchical Clucstering (SCHC)
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' A wrapper function for `rgeoda::schc()`.Spatially constrained hierarchical clustering is
 #' a special form of constrained clustering, where the constraint is based on contiguity (common borders).
@@ -174,7 +174,7 @@ st_schc = \(sfj,varcol,k,wt = NULL,boundvar = NULL,method = "average",min_bound 
 }
 
 #' @title A greedy algorithm to solve the AZP problem
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' A wrapper function for `rgeoda::azp_greedy()`.The automatic zoning procedure (AZP) was
 #' initially outlined in Openshaw (1977) as a way to address some of the consequences of
@@ -237,7 +237,7 @@ st_azp_greedy = \(sfj,varcol,k,wt = NULL,boundvar = NULL,min_bound = 0,inits = 0
 }
 
 #' @title A simulated annealing algorithm to solve the AZP problem
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' A wrapper function for `rgeoda::azp_sa()`.The automatic zoning procedure (AZP) was
 #' initially outlined in Openshaw (1977) as a way to address some of the consequences of
@@ -302,7 +302,7 @@ st_azp_sa = \(sfj,varcol,k,wt = NULL,boundvar = NULL,cooling_rate = 0.85,sa_maxi
 }
 
 #' @title A tabu algorithm to solve the AZP problem
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' A wrapper function for `rgeoda::azp_tabu()`.The automatic zoning procedure (AZP) was
 #' initially outlined in Openshaw (1977) as a way to address some of the consequences of
@@ -367,7 +367,7 @@ st_azp_tabu = \(sfj,varcol,k,wt = NULL,boundvar = NULL,tabu_length = 10,conv_tab
 }
 
 #' @title A greedy algorithm to solve the max-p-region problem
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' A wrapper function for `rgeoda::maxp_greedy()`.The max-p-region problem is a special case
 #' of constrained clustering where a finite number of geographical areas are aggregated into
@@ -428,7 +428,7 @@ st_maxp_greedy = \(sfj,varcol,wt = NULL,boundvar,min_bound,iterations = 99,initi
 }
 
 #' @title A simulated annealing algorithm to solve the max-p-region problem
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' A wrapper function for `rgeoda::maxp_sa()`.The max-p-region problem is a special case
 #' of constrained clustering where a finite number of geographical areas are aggregated into
@@ -491,7 +491,7 @@ st_maxp_sa = \(sfj,varcol,wt = NULL,boundvar,min_bound,cooling_rate = 0.85,sa_ma
 }
 
 #' @title A tabu-search algorithm to solve the max-p-region problem
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #' @description
 #' A wrapper function for `rgeoda::maxp_tabu()`.The max-p-region problem is a special case
 #' of constrained clustering where a finite number of geographical areas are aggregated into

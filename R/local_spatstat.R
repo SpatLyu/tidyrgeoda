@@ -1,7 +1,7 @@
 #' @title Local Moran Statistics
 #' @description
 #' The function to apply local Moran statistics
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
 #' @param varcol The variable selected to calculate spatial lag, which is a character.
@@ -19,7 +19,6 @@
 #' @importFrom sf st_drop_geometry
 #' @importFrom dplyr select
 #' @importFrom dplyr all_of
-#' @importFrom dplyr case_match
 #' @importFrom magrittr %>%
 #' @importFrom rgeoda local_moran
 #' @importFrom rgeoda lisa_clusters
@@ -43,16 +42,8 @@ st_local_moran = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = 
   splisa = rgeoda::local_moran(wt,df,permutations,permutation_method,
                                significance_cutoff,cpu_threads,seed)
   splisalabel = rgeoda::lisa_labels(splisa)
-  splisa %>%
-    rgeoda::lisa_clusters(cutoff = significance_cutoff) %>%
-    dplyr::case_match(0 ~ splisalabel[1],
-                      1 ~ splisalabel[2],
-                      2 ~ splisalabel[3],
-                      3 ~ splisalabel[4],
-                      4 ~ splisalabel[5],
-                      5 ~ splisalabel[6],
-                      6 ~ splisalabel[7]) %>%
-    factor(levels = splisalabel) -> splisac
+  splisac = rgeoda::lisa_clusters(splisa)
+  splisac = factor(splisalabel[splisac + 1],levels = splisalabel)
 
   return(splisac)
 }
@@ -61,7 +52,7 @@ st_local_moran = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = 
 #' @description
 #' The function to apply local Moran with EB Rate statistics. The EB rate is first computed
 #' from "event" and "base" variables, and then used in local moran statistics.
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
 #' @param varcol The variable selected to calculate spatial lag, which is a character.
@@ -79,7 +70,6 @@ st_local_moran = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = 
 #' @importFrom sf st_drop_geometry
 #' @importFrom dplyr select
 #' @importFrom dplyr all_of
-#' @importFrom dplyr case_match
 #' @importFrom magrittr %>%
 #' @importFrom rgeoda local_moran_eb
 #' @importFrom rgeoda lisa_clusters
@@ -105,16 +95,8 @@ st_local_moran_eb = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method
   splisa = rgeoda::local_moran_eb(wt,df,permutations,permutation_method,
                                   significance_cutoff,cpu_threads,seed)
   splisalabel = rgeoda::lisa_labels(splisa)
-  splisa %>%
-    rgeoda::lisa_clusters(cutoff = significance_cutoff) %>%
-    dplyr::case_match(0 ~ splisalabel[1],
-                      1 ~ splisalabel[2],
-                      2 ~ splisalabel[3],
-                      3 ~ splisalabel[4],
-                      4 ~ splisalabel[5],
-                      5 ~ splisalabel[6],
-                      6 ~ splisalabel[7]) %>%
-    factor(levels = splisalabel) -> splisac
+  splisac = rgeoda::lisa_clusters(splisa)
+  splisac = factor(splisalabel[splisac + 1],levels = splisalabel)
 
   return(splisac)
 }
@@ -122,7 +104,7 @@ st_local_moran_eb = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method
 #' @title Bivariate Local Moran Statistics
 #' @description
 #' The function to apply bivariate local Moran statistics
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
 #' @param varcol The variable selected to calculate spatial lag, which is a character.
@@ -140,7 +122,6 @@ st_local_moran_eb = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method
 #' @importFrom sf st_drop_geometry
 #' @importFrom dplyr select
 #' @importFrom dplyr all_of
-#' @importFrom dplyr case_match
 #' @importFrom magrittr %>%
 #' @importFrom rgeoda local_bimoran
 #' @importFrom rgeoda lisa_clusters
@@ -164,16 +145,8 @@ st_local_bimoran = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method 
   splisa = rgeoda::local_bimoran(wt,df,permutations,permutation_method,
                                  significance_cutoff,cpu_threads,seed)
   splisalabel = rgeoda::lisa_labels(splisa)
-  splisa %>%
-    rgeoda::lisa_clusters(cutoff = significance_cutoff) %>%
-    dplyr::case_match(0 ~ splisalabel[1],
-                      1 ~ splisalabel[2],
-                      2 ~ splisalabel[3],
-                      3 ~ splisalabel[4],
-                      4 ~ splisalabel[5],
-                      5 ~ splisalabel[6],
-                      6 ~ splisalabel[7]) %>%
-    factor(levels = splisalabel) -> splisac
+  splisac = rgeoda::lisa_clusters(splisa)
+  splisac = factor(splisalabel[splisac + 1],levels = splisalabel)
 
   return(splisac)
 }
@@ -181,7 +154,7 @@ st_local_bimoran = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method 
 #' @title Local Geary Statistics
 #' @description
 #' The function to apply local Geary statistics
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
 #' @param varcol The variable selected to calculate spatial lag, which is a character.
@@ -199,7 +172,6 @@ st_local_bimoran = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method 
 #' @importFrom sf st_drop_geometry
 #' @importFrom dplyr select
 #' @importFrom dplyr all_of
-#' @importFrom dplyr case_match
 #' @importFrom magrittr %>%
 #' @importFrom rgeoda local_geary
 #' @importFrom rgeoda lisa_clusters
@@ -223,16 +195,8 @@ st_local_geary = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = 
   splisa = rgeoda::local_geary(wt,df,permutations,permutation_method,
                                significance_cutoff,cpu_threads,seed)
   splisalabel = rgeoda::lisa_labels(splisa)
-  splisa %>%
-    rgeoda::lisa_clusters(cutoff = significance_cutoff) %>%
-    dplyr::case_match(0 ~ splisalabel[1],
-                      1 ~ splisalabel[2],
-                      2 ~ splisalabel[3],
-                      3 ~ splisalabel[4],
-                      4 ~ splisalabel[5],
-                      5 ~ splisalabel[6],
-                      6 ~ splisalabel[7]) %>%
-    factor(levels = splisalabel) -> splisac
+  splisac = rgeoda::lisa_clusters(splisa)
+  splisac = factor(splisalabel[splisac + 1],levels = splisalabel)
 
   return(splisac)
 }
@@ -240,7 +204,7 @@ st_local_geary = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = 
 #' @title Local Multivariate Geary Statistics
 #' @description
 #' The function to apply local Multivariate Geary statistics
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
 #' @param varcol The variables selected to calculate spatial lag, which is a character vector.
@@ -258,7 +222,6 @@ st_local_geary = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = 
 #' @importFrom sf st_drop_geometry
 #' @importFrom dplyr select
 #' @importFrom dplyr all_of
-#' @importFrom dplyr case_match
 #' @importFrom magrittr %>%
 #' @importFrom rgeoda local_multigeary
 #' @importFrom rgeoda lisa_clusters
@@ -283,16 +246,8 @@ st_local_multigeary = \(sfj,varcol,wt = NULL,permutations = 999,permutation_meth
   splisa = rgeoda::local_multigeary(wt,df,permutations,permutation_method,
                                     significance_cutoff,cpu_threads,seed)
   splisalabel = rgeoda::lisa_labels(splisa)
-  splisa %>%
-    rgeoda::lisa_clusters(cutoff = significance_cutoff) %>%
-    dplyr::case_match(0 ~ splisalabel[1],
-                      1 ~ splisalabel[2],
-                      2 ~ splisalabel[3],
-                      3 ~ splisalabel[4],
-                      4 ~ splisalabel[5],
-                      5 ~ splisalabel[6],
-                      6 ~ splisalabel[7]) %>%
-    factor(levels = splisalabel) -> splisac
+  splisac = rgeoda::lisa_clusters(splisa)
+  splisac = factor(splisalabel[splisac + 1],levels = splisalabel)
 
   return(splisac)
 }
@@ -300,7 +255,7 @@ st_local_multigeary = \(sfj,varcol,wt = NULL,permutations = 999,permutation_meth
 #' @title Local Getis-Ord's G Statistics
 #' @description
 #' The function to apply Getis-Ord's local G statistics
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
 #' @param varcol The variable selected to calculate spatial lag, which is a character.
@@ -318,7 +273,6 @@ st_local_multigeary = \(sfj,varcol,wt = NULL,permutations = 999,permutation_meth
 #' @importFrom sf st_drop_geometry
 #' @importFrom dplyr select
 #' @importFrom dplyr all_of
-#' @importFrom dplyr case_match
 #' @importFrom magrittr %>%
 #' @importFrom rgeoda local_g
 #' @importFrom rgeoda lisa_clusters
@@ -342,16 +296,8 @@ st_local_g = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = "com
   splisa = rgeoda::local_g(wt,df,permutations,permutation_method,
                            significance_cutoff,cpu_threads,seed)
   splisalabel = rgeoda::lisa_labels(splisa)
-  splisa %>%
-    rgeoda::lisa_clusters(cutoff = significance_cutoff) %>%
-    dplyr::case_match(0 ~ splisalabel[1],
-                      1 ~ splisalabel[2],
-                      2 ~ splisalabel[3],
-                      3 ~ splisalabel[4],
-                      4 ~ splisalabel[5],
-                      5 ~ splisalabel[6],
-                      6 ~ splisalabel[7]) %>%
-    factor(levels = splisalabel) -> splisac
+  splisac = rgeoda::lisa_clusters(splisa)
+  splisac = factor(splisalabel[splisac + 1],levels = splisalabel)
 
   return(splisac)
 }
@@ -359,7 +305,7 @@ st_local_g = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = "com
 #' @title Local Getis-Ord's G* Statistics
 #' @description
 #' The function to apply Getis-Ord's local G*statistics
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
 #' @param varcol The variable selected to calculate spatial lag, which is a character.
@@ -377,7 +323,6 @@ st_local_g = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = "com
 #' @importFrom sf st_drop_geometry
 #' @importFrom dplyr select
 #' @importFrom dplyr all_of
-#' @importFrom dplyr case_match
 #' @importFrom magrittr %>%
 #' @importFrom rgeoda local_gstar
 #' @importFrom rgeoda lisa_clusters
@@ -401,16 +346,8 @@ st_local_gstar = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = 
   splisa = rgeoda::local_gstar(wt,df,permutations,permutation_method,
                                significance_cutoff,cpu_threads,seed)
   splisalabel = rgeoda::lisa_labels(splisa)
-  splisa %>%
-    rgeoda::lisa_clusters(cutoff = significance_cutoff) %>%
-    dplyr::case_match(0 ~ splisalabel[1],
-                      1 ~ splisalabel[2],
-                      2 ~ splisalabel[3],
-                      3 ~ splisalabel[4],
-                      4 ~ splisalabel[5],
-                      5 ~ splisalabel[6],
-                      6 ~ splisalabel[7]) %>%
-    factor(levels = splisalabel) -> splisac
+  splisac = rgeoda::lisa_clusters(splisa)
+  splisac = factor(splisalabel[splisac + 1],levels = splisalabel)
 
   return(splisac)
 }
@@ -418,7 +355,7 @@ st_local_gstar = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = 
 #' @title Local Join Count Statistics
 #' @description
 #' The function to apply local Join Count statistics
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
 #' @param varcol The variable selected to calculate spatial lag, which is a character.
@@ -436,7 +373,6 @@ st_local_gstar = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = 
 #' @importFrom sf st_drop_geometry
 #' @importFrom dplyr select
 #' @importFrom dplyr all_of
-#' @importFrom dplyr case_match
 #' @importFrom magrittr %>%
 #' @importFrom rgeoda local_joincount
 #' @importFrom rgeoda lisa_clusters
@@ -460,16 +396,8 @@ st_local_joincount = \(sfj,varcol,wt = NULL,permutations = 999,permutation_metho
   splisa = rgeoda::local_joincount(wt,df,permutations,permutation_method,
                                    significance_cutoff,cpu_threads,seed)
   splisalabel = rgeoda::lisa_labels(splisa)
-  splisa %>%
-    rgeoda::lisa_clusters(cutoff = significance_cutoff) %>%
-    dplyr::case_match(0 ~ splisalabel[1],
-                      1 ~ splisalabel[2],
-                      2 ~ splisalabel[3],
-                      3 ~ splisalabel[4],
-                      4 ~ splisalabel[5],
-                      5 ~ splisalabel[6],
-                      6 ~ splisalabel[7]) %>%
-    factor(levels = splisalabel) -> splisac
+  splisac = rgeoda::lisa_clusters(splisa)
+  splisac = factor(splisalabel[splisac + 1],levels = splisalabel)
 
   return(splisac)
 }
@@ -477,7 +405,7 @@ st_local_joincount = \(sfj,varcol,wt = NULL,permutations = 999,permutation_metho
 #' @title Bivariate Local Join Count Statistics
 #' @description
 #' The function to apply local Bivariate Join Count statistics
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
 #' @param varcol The variable selected to calculate spatial lag, which is a character.
@@ -495,7 +423,6 @@ st_local_joincount = \(sfj,varcol,wt = NULL,permutations = 999,permutation_metho
 #' @importFrom sf st_drop_geometry
 #' @importFrom dplyr select
 #' @importFrom dplyr all_of
-#' @importFrom dplyr case_match
 #' @importFrom magrittr %>%
 #' @importFrom rgeoda local_bijoincount
 #' @importFrom rgeoda lisa_clusters
@@ -520,16 +447,8 @@ st_local_bijoincount = \(sfj,varcol,wt = NULL,permutations = 999,permutation_met
   splisa = rgeoda::local_bijoincount(wt,df,permutations,permutation_method,
                                      significance_cutoff,cpu_threads,seed)
   splisalabel = rgeoda::lisa_labels(splisa)
-  splisa %>%
-    rgeoda::lisa_clusters(cutoff = significance_cutoff) %>%
-    dplyr::case_match(0 ~ splisalabel[1],
-                      1 ~ splisalabel[2],
-                      2 ~ splisalabel[3],
-                      3 ~ splisalabel[4],
-                      4 ~ splisalabel[5],
-                      5 ~ splisalabel[6],
-                      6 ~ splisalabel[7]) %>%
-    factor(levels = splisalabel) -> splisac
+  splisac = rgeoda::lisa_clusters(splisa)
+  splisac = factor(splisalabel[splisac + 1],levels = splisalabel)
 
   return(splisac)
 }
@@ -537,7 +456,7 @@ st_local_bijoincount = \(sfj,varcol,wt = NULL,permutations = 999,permutation_met
 #' @title (Multivariate) Colocation Local Join Count Statistics
 #' @description
 #' The function to apply (multivariate) colocation local Join Count statistics
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
 #' @param varcol The variable selected to calculate spatial lag, which is a character.
@@ -555,7 +474,6 @@ st_local_bijoincount = \(sfj,varcol,wt = NULL,permutations = 999,permutation_met
 #' @importFrom sf st_drop_geometry
 #' @importFrom dplyr select
 #' @importFrom dplyr all_of
-#' @importFrom dplyr case_match
 #' @importFrom magrittr %>%
 #' @importFrom rgeoda local_multijoincount
 #' @importFrom rgeoda lisa_clusters
@@ -579,16 +497,8 @@ st_local_multijoincount = \(sfj,varcol,wt = NULL,permutations = 999,permutation_
   splisa = rgeoda::local_multijoincount(wt,df,permutations,permutation_method,
                                         significance_cutoff,cpu_threads,seed)
   splisalabel = rgeoda::lisa_labels(splisa)
-  splisa %>%
-    rgeoda::lisa_clusters(cutoff = significance_cutoff) %>%
-    dplyr::case_match(0 ~ splisalabel[1],
-                      1 ~ splisalabel[2],
-                      2 ~ splisalabel[3],
-                      3 ~ splisalabel[4],
-                      4 ~ splisalabel[5],
-                      5 ~ splisalabel[6],
-                      6 ~ splisalabel[7]) %>%
-    factor(levels = splisalabel) -> splisac
+  splisac = rgeoda::lisa_clusters(splisa)
+  splisac = factor(splisalabel[splisac + 1],levels = splisalabel)
 
   return(splisac)
 }
@@ -596,7 +506,7 @@ st_local_multijoincount = \(sfj,varcol,wt = NULL,permutations = 999,permutation_
 #' @title Quantile LISA Statistics
 #' @description
 #' The function to apply quantile LISA statistics
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
 #' @param varcol The variable selected to calculate spatial lag, which is a character.
@@ -617,7 +527,6 @@ st_local_multijoincount = \(sfj,varcol,wt = NULL,permutations = 999,permutation_
 #' @importFrom sf st_drop_geometry
 #' @importFrom dplyr select
 #' @importFrom dplyr all_of
-#' @importFrom dplyr case_match
 #' @importFrom magrittr %>%
 #' @importFrom rgeoda local_quantilelisa
 #' @importFrom rgeoda lisa_clusters
@@ -641,16 +550,8 @@ st_local_quantilelisa = \(sfj,varcol,k,q,wt = NULL,permutations = 999,permutatio
   splisa = rgeoda::local_quantilelisa(wt,df,k,q,permutations,permutation_method,
                                       significance_cutoff,cpu_threads,seed)
   splisalabel = rgeoda::lisa_labels(splisa)
-  splisa %>%
-    rgeoda::lisa_clusters(cutoff = significance_cutoff) %>%
-    dplyr::case_match(0 ~ splisalabel[1],
-                      1 ~ splisalabel[2],
-                      2 ~ splisalabel[3],
-                      3 ~ splisalabel[4],
-                      4 ~ splisalabel[5],
-                      5 ~ splisalabel[6],
-                      6 ~ splisalabel[7]) %>%
-    factor(levels = splisalabel) -> splisac
+  splisac = rgeoda::lisa_clusters(splisa)
+  splisac = factor(splisalabel[splisac + 1],levels = splisalabel)
 
   return(splisac)
 }
@@ -658,7 +559,7 @@ st_local_quantilelisa = \(sfj,varcol,k,q,wt = NULL,permutations = 999,permutatio
 #' @title Multivariate Quantile LISA Statistics
 #' @description
 #' The function to apply multivariate quantile LISA statistics
-#' @author Wenbo Lv
+#' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
 #' @param varcol The variable selected to calculate spatial lag, which is a character.
@@ -679,7 +580,6 @@ st_local_quantilelisa = \(sfj,varcol,k,q,wt = NULL,permutations = 999,permutatio
 #' @importFrom sf st_drop_geometry
 #' @importFrom dplyr select
 #' @importFrom dplyr all_of
-#' @importFrom dplyr case_match
 #' @importFrom magrittr %>%
 #' @importFrom rgeoda local_multiquantilelisa
 #' @importFrom rgeoda lisa_clusters
@@ -703,16 +603,8 @@ st_local_multiquantilelisa = \(sfj,varcol,k,q,wt = NULL,permutations = 999,permu
   splisa = rgeoda::local_multiquantilelisa(wt,df,k,q,permutations,permutation_method,
                                            significance_cutoff,cpu_threads,seed)
   splisalabel = rgeoda::lisa_labels(splisa)
-  splisa %>%
-    rgeoda::lisa_clusters(cutoff = significance_cutoff) %>%
-    dplyr::case_match(0 ~ splisalabel[1],
-                      1 ~ splisalabel[2],
-                      2 ~ splisalabel[3],
-                      3 ~ splisalabel[4],
-                      4 ~ splisalabel[5],
-                      5 ~ splisalabel[6],
-                      6 ~ splisalabel[7]) %>%
-    factor(levels = splisalabel) -> splisac
+  splisac = rgeoda::lisa_clusters(splisa)
+  splisac = factor(splisalabel[splisac + 1],levels = splisalabel)
 
   return(splisac)
 }

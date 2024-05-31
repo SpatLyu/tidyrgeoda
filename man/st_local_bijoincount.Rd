@@ -48,5 +48,5 @@ guerry = sf::read_sf(guerry_path) \%>\% dplyr::mutate(InvCrm = 1 - TopCrm)
 st_local_bijoincount(guerry,c("TopCrm", "InvCrm"))
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

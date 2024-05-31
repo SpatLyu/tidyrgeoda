@@ -54,5 +54,5 @@ guerry = sf::read_sf(guerry_path)
 st_local_quantilelisa(guerry,"Crm_prs",k = 4, q = 1)
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

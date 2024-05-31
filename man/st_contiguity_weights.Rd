@@ -40,5 +40,5 @@ guerry = sf::read_sf(guerry_path)
 queenw = st_contiguity_weights(guerry,queen = TRUE)
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

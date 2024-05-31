@@ -18,5 +18,5 @@ A weights object
 Create a spatial weights object from a geoda file
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

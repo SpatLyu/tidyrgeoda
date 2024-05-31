@@ -30,5 +30,5 @@ guerry |>
  scale_fill_lisa()
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

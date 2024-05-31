@@ -47,5 +47,5 @@ guerry = sf::read_sf(guerry_path)
 st_local_bimoran(guerry,c('Crm_prs','Litercy'))
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

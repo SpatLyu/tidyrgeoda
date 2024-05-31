@@ -48,5 +48,5 @@ st_local_multigeary(guerry,c('Crm_prs','Crm_prp','Litercy','Donatns','Infants',
 'Suicids'))
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

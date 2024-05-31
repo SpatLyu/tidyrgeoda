@@ -23,5 +23,5 @@ A boolean value indicates if save successfully or failed
 Save spatial weights to a file
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

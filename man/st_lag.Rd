@@ -27,5 +27,5 @@ guerry = sf::read_sf(guerry_path)
 st_lag(guerry,'Pop1831')
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

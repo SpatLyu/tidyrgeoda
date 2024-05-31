@@ -47,5 +47,5 @@ guerry = sf::read_sf(guerry_path)
 st_local_multijoincount(guerry,c('TopWealth','TopWealth', 'TopLit'))
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

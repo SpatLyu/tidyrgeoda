@@ -30,5 +30,5 @@ guerry = read_sf(system.file("extdata", "Guerry.shp", package = "rgeoda"))
 st_breaks(guerry,'Crm_prs',break_method = "quantile", k = 5)
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

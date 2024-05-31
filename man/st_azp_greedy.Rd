@@ -70,5 +70,5 @@ guerry_clusters = st_azp_greedy(guerry,c('Crm_prs','Crm_prp','Litercy',
 guerry_clusters
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }

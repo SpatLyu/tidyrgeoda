@@ -50,5 +50,5 @@ st_local_moran_eb(guerry,c("hr60", "po60"))
 }
 }
 \author{
-Wenbo Lv
+Wenbo Lv \email{lyu.geosocial@gmail.com}
 }
