@@ -39,7 +39,7 @@ not-significant clusters.}
 A factor vector.
 }
 \description{
-The function to apply local Geary statistics
+Function to apply local Geary statistics
 }
 \examples{
 guerry_path = system.file("extdata", "Guerry.shp", package = "rgeoda")

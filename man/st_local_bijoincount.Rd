@@ -39,7 +39,7 @@ not-significant clusters.}
 A factor vector.
 }
 \description{
-The function to apply local Bivariate Join Count statistics
+Function to apply local Bivariate Join Count statistics
 }
 \examples{
 library(magrittr)

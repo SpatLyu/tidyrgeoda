@@ -1,6 +1,6 @@
 #' @title Local Moran Statistics
 #' @description
-#' The function to apply local Moran statistics
+#' Function to apply local Moran statistics
 #' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
@@ -17,11 +17,9 @@
 #'
 #' @return A factor vector.
 #' @importFrom sf st_drop_geometry
-#' @importFrom dplyr select
-#' @importFrom dplyr all_of
+#' @importFrom dplyr select all_of
 #' @importFrom magrittr %>%
-#' @importFrom rgeoda local_moran
-#' @importFrom rgeoda lisa_clusters
+#' @importFrom rgeoda local_moran lisa_labels lisa_clusters
 #' @export
 #'
 #' @examples
@@ -50,7 +48,7 @@ st_local_moran = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = 
 
 #' @title Local Moran with Empirical Bayes(EB) Rate
 #' @description
-#' The function to apply local Moran with EB Rate statistics. The EB rate is first computed
+#' Function to apply local Moran with EB Rate statistics. The EB rate is first computed
 #' from "event" and "base" variables, and then used in local moran statistics.
 #' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
@@ -68,11 +66,9 @@ st_local_moran = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = 
 #'
 #' @return A factor vector.
 #' @importFrom sf st_drop_geometry
-#' @importFrom dplyr select
-#' @importFrom dplyr all_of
+#' @importFrom dplyr select all_of
 #' @importFrom magrittr %>%
-#' @importFrom rgeoda local_moran_eb
-#' @importFrom rgeoda lisa_clusters
+#' @importFrom rgeoda local_moran_eb lisa_clusters lisa_labels
 #' @export
 #'
 #' @examples
@@ -103,7 +99,7 @@ st_local_moran_eb = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method
 
 #' @title Bivariate Local Moran Statistics
 #' @description
-#' The function to apply bivariate local Moran statistics
+#' Function to apply bivariate local Moran statistics
 #' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
@@ -120,11 +116,9 @@ st_local_moran_eb = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method
 #'
 #' @return A factor vector.
 #' @importFrom sf st_drop_geometry
-#' @importFrom dplyr select
-#' @importFrom dplyr all_of
+#' @importFrom dplyr select all_of
 #' @importFrom magrittr %>%
-#' @importFrom rgeoda local_bimoran
-#' @importFrom rgeoda lisa_clusters
+#' @importFrom rgeoda local_bimoran lisa_clusters lisa_labels
 #' @export
 #'
 #' @examples
@@ -153,7 +147,7 @@ st_local_bimoran = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method 
 
 #' @title Local Geary Statistics
 #' @description
-#' The function to apply local Geary statistics
+#' Function to apply local Geary statistics
 #' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
@@ -170,11 +164,9 @@ st_local_bimoran = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method 
 #'
 #' @return A factor vector.
 #' @importFrom sf st_drop_geometry
-#' @importFrom dplyr select
-#' @importFrom dplyr all_of
+#' @importFrom dplyr select all_of
 #' @importFrom magrittr %>%
-#' @importFrom rgeoda local_geary
-#' @importFrom rgeoda lisa_clusters
+#' @importFrom rgeoda local_geary lisa_clusters lisa_labels
 #' @export
 #'
 #' @examples
@@ -203,7 +195,7 @@ st_local_geary = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = 
 
 #' @title Local Multivariate Geary Statistics
 #' @description
-#' The function to apply local Multivariate Geary statistics
+#' Function to apply local Multivariate Geary statistics
 #' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
@@ -220,11 +212,9 @@ st_local_geary = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = 
 #'
 #' @return A factor vector.
 #' @importFrom sf st_drop_geometry
-#' @importFrom dplyr select
-#' @importFrom dplyr all_of
+#' @importFrom dplyr select all_of
 #' @importFrom magrittr %>%
-#' @importFrom rgeoda local_multigeary
-#' @importFrom rgeoda lisa_clusters
+#' @importFrom rgeoda local_multigeary lisa_clusters lisa_labels
 #' @export
 #'
 #' @examples
@@ -254,7 +244,7 @@ st_local_multigeary = \(sfj,varcol,wt = NULL,permutations = 999,permutation_meth
 
 #' @title Local Getis-Ord's G Statistics
 #' @description
-#' The function to apply Getis-Ord's local G statistics
+#' Function to apply Getis-Ord's local G statistics
 #' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
@@ -271,11 +261,9 @@ st_local_multigeary = \(sfj,varcol,wt = NULL,permutations = 999,permutation_meth
 #'
 #' @return A factor vector.
 #' @importFrom sf st_drop_geometry
-#' @importFrom dplyr select
-#' @importFrom dplyr all_of
+#' @importFrom dplyr select all_of
 #' @importFrom magrittr %>%
-#' @importFrom rgeoda local_g
-#' @importFrom rgeoda lisa_clusters
+#' @importFrom rgeoda local_g lisa_clusters lisa_labels
 #' @export
 #'
 #' @examples
@@ -304,7 +292,7 @@ st_local_g = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = "com
 
 #' @title Local Getis-Ord's G* Statistics
 #' @description
-#' The function to apply Getis-Ord's local G*statistics
+#' Function to apply Getis-Ord's local G*statistics
 #' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
@@ -321,11 +309,9 @@ st_local_g = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = "com
 #'
 #' @return A factor vector.
 #' @importFrom sf st_drop_geometry
-#' @importFrom dplyr select
-#' @importFrom dplyr all_of
+#' @importFrom dplyr select all_of
 #' @importFrom magrittr %>%
-#' @importFrom rgeoda local_gstar
-#' @importFrom rgeoda lisa_clusters
+#' @importFrom rgeoda local_gstar lisa_clusters lisa_labels
 #' @export
 #'
 #' @examples
@@ -354,7 +340,7 @@ st_local_gstar = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = 
 
 #' @title Local Join Count Statistics
 #' @description
-#' The function to apply local Join Count statistics
+#' Function to apply local Join Count statistics
 #' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
@@ -371,11 +357,9 @@ st_local_gstar = \(sfj,varcol,wt = NULL,permutations = 999,permutation_method = 
 #'
 #' @return A factor vector.
 #' @importFrom sf st_drop_geometry
-#' @importFrom dplyr select
-#' @importFrom dplyr all_of
+#' @importFrom dplyr select all_of
 #' @importFrom magrittr %>%
-#' @importFrom rgeoda local_joincount
-#' @importFrom rgeoda lisa_clusters
+#' @importFrom rgeoda local_joincount lisa_clusters lisa_labels
 #' @export
 #'
 #' @examples
@@ -404,7 +388,7 @@ st_local_joincount = \(sfj,varcol,wt = NULL,permutations = 999,permutation_metho
 
 #' @title Bivariate Local Join Count Statistics
 #' @description
-#' The function to apply local Bivariate Join Count statistics
+#' Function to apply local Bivariate Join Count statistics
 #' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
@@ -421,11 +405,9 @@ st_local_joincount = \(sfj,varcol,wt = NULL,permutations = 999,permutation_metho
 #'
 #' @return A factor vector.
 #' @importFrom sf st_drop_geometry
-#' @importFrom dplyr select
-#' @importFrom dplyr all_of
+#' @importFrom dplyr select all_of
 #' @importFrom magrittr %>%
-#' @importFrom rgeoda local_bijoincount
-#' @importFrom rgeoda lisa_clusters
+#' @importFrom rgeoda local_bijoincount lisa_clusters lisa_labels
 #' @export
 #'
 #' @examples
@@ -455,7 +437,7 @@ st_local_bijoincount = \(sfj,varcol,wt = NULL,permutations = 999,permutation_met
 
 #' @title (Multivariate) Colocation Local Join Count Statistics
 #' @description
-#' The function to apply (multivariate) colocation local Join Count statistics
+#' Function to apply (multivariate) colocation local Join Count statistics
 #' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
@@ -472,11 +454,9 @@ st_local_bijoincount = \(sfj,varcol,wt = NULL,permutations = 999,permutation_met
 #'
 #' @return A factor vector.
 #' @importFrom sf st_drop_geometry
-#' @importFrom dplyr select
-#' @importFrom dplyr all_of
+#' @importFrom dplyr select all_of
 #' @importFrom magrittr %>%
-#' @importFrom rgeoda local_multijoincount
-#' @importFrom rgeoda lisa_clusters
+#' @importFrom rgeoda local_multijoincount lisa_clusters lisa_labels
 #' @export
 #'
 #' @examples
@@ -505,7 +485,7 @@ st_local_multijoincount = \(sfj,varcol,wt = NULL,permutations = 999,permutation_
 
 #' @title Quantile LISA Statistics
 #' @description
-#' The function to apply quantile LISA statistics
+#' Function to apply quantile LISA statistics
 #' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
@@ -525,11 +505,9 @@ st_local_multijoincount = \(sfj,varcol,wt = NULL,permutations = 999,permutation_
 #'
 #' @return A factor vector.
 #' @importFrom sf st_drop_geometry
-#' @importFrom dplyr select
-#' @importFrom dplyr all_of
+#' @importFrom dplyr select all_of
 #' @importFrom magrittr %>%
-#' @importFrom rgeoda local_quantilelisa
-#' @importFrom rgeoda lisa_clusters
+#' @importFrom rgeoda local_quantilelisa lisa_clusters
 #' @export
 #'
 #' @examples
@@ -558,7 +536,7 @@ st_local_quantilelisa = \(sfj,varcol,k,q,wt = NULL,permutations = 999,permutatio
 
 #' @title Multivariate Quantile LISA Statistics
 #' @description
-#' The function to apply multivariate quantile LISA statistics
+#' Function to apply multivariate quantile LISA statistics
 #' @author Wenbo Lv \email{lyu.geosocial@gmail.com}
 #'
 #' @param sfj An sf (simple feature) object.
@@ -578,11 +556,9 @@ st_local_quantilelisa = \(sfj,varcol,k,q,wt = NULL,permutations = 999,permutatio
 #'
 #' @return A factor vector.
 #' @importFrom sf st_drop_geometry
-#' @importFrom dplyr select
-#' @importFrom dplyr all_of
+#' @importFrom dplyr select all_of
 #' @importFrom magrittr %>%
-#' @importFrom rgeoda local_multiquantilelisa
-#' @importFrom rgeoda lisa_clusters
+#' @importFrom rgeoda local_multiquantilelisa lisa_clusters lisa_labels
 #' @export
 #'
 #' @examples

@@ -39,7 +39,7 @@ not-significant clusters.}
 A factor vector.
 }
 \description{
-The function to apply (multivariate) colocation local Join Count statistics
+Function to apply (multivariate) colocation local Join Count statistics
 }
 \examples{
 guerry_path = system.file("extdata", "Guerry.shp", package = "rgeoda")

@@ -39,7 +39,7 @@ not-significant clusters.}
 A factor vector.
 }
 \description{
-The function to apply Getis-Ord's local G statistics
+Function to apply Getis-Ord's local G statistics
 }
 \examples{
 guerry_path = system.file("extdata", "Guerry.shp", package = "rgeoda")

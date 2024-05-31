@@ -39,7 +39,7 @@ not-significant clusters.}
 A factor vector.
 }
 \description{
-The function to apply local Moran with EB Rate statistics. The EB rate is first computed
+Function to apply local Moran with EB Rate statistics. The EB rate is first computed
 from "event" and "base" variables, and then used in local moran statistics.
 }
 \examples{

@@ -46,7 +46,7 @@ not-significant clusters.}
 A factor vector.
 }
 \description{
-The function to apply quantile LISA statistics
+Function to apply quantile LISA statistics
 }
 \examples{
 guerry_path = system.file("extdata", "Guerry.shp", package = "rgeoda")
