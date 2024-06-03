@@ -35,11 +35,6 @@ home:
   title: >
     tidyrgeoda | A tidy interface for rgeoda
 
-navbar:
-  structure:
-    right:
-      - github
-
 authors:
   Wenbo Lv:
     href: https://spatlyu.github.io/
