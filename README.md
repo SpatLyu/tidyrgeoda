@@ -4,6 +4,9 @@
 # tidyrgeoda <img src="man/figures/logo.png" align="right" height="140"/>
 
 <!-- badges: start -->
+
+![CRAN](https://www.r-pkg.org/badges/version/tidyrgeoda)
+![r-universe](https://spatlyu.r-universe.dev/badges/tidyrgeoda)
 <!-- badges: end -->
 
 The goal of **tidyrgeoda** is to provide an interface for **rgeoda** to
@@ -11,11 +14,17 @@ integrate with **sf** objects and the **tidyverse**.
 
 ## Installation
 
-You can install the development version of `tidyrgeoda` like so:
+You can install the development version of `tidyrgeoda` from `github`:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("SpatLyu/tidyrgeoda",build_vignettes = T,dep = T)
+```
+
+or install `tidyrgeoda` from `r-universe`:
+
+``` r
+install.packages('tidyrgeoda', repos='https://spatlyu.r-universe.dev')
 ```
 
 ## Example

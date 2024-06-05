@@ -39,8 +39,8 @@ representation of each column is as follows:
 The subdistrict boundary is drawn by with reference to the Atlas of  Community Network ResponsibilityDistrict of  Urban Management  Division in Guangzhou.
 }
 \references{
-WANG Yang，ZHANG Hong’ou，YE Yuyao，WU Qitao，JIN Lixia．Comprehensive Evaluation and Distribution Pattern of Social
-Space Quality in Guangzhou, China．Tropical Geography，2017，37（1）：25-32．
+WANG Yang, ZHANG Hong’ou, YE Yuyao, WU Qitao, JIN Lixia. Comprehensive Evaluation and Distribution Pattern of Social
+Space Quality in Guangzhou, China. Tropical Geography.
 }
 \keyword{dataset}
 \keyword{quality}

@@ -34,6 +34,6 @@
 #' @docType data
 #' @keywords dataset social space quality score
 #' @references
-#' WANG Yang，ZHANG Hong’ou，YE Yuyao，WU Qitao，JIN Lixia．Comprehensive Evaluation and Distribution Pattern of Social
-#' Space Quality in Guangzhou, China．Tropical Geography，2017，37（1）：25-32．
+#' WANG Yang, ZHANG Hong’ou, YE Yuyao, WU Qitao, JIN Lixia. Comprehensive Evaluation and Distribution Pattern of Social
+#' Space Quality in Guangzhou, China. Tropical Geography.
 "gzma"
