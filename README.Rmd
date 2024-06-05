@@ -16,8 +16,10 @@ knitr::opts_chunk$set(
 # tidyrgeoda <img src="man/figures/logo.png" align="right" height="140"/>
 
 <!-- badges: start -->
+
 ![CRAN](https://www.r-pkg.org/badges/version/tidyrgeoda)
 ![r-universe](https://spatlyu.r-universe.dev/badges/tidyrgeoda)
+
 <!-- badges: end -->
 
 The goal of **tidyrgeoda** is to provide an interface for **rgeoda** to integrate with **sf** objects and the **tidyverse**.

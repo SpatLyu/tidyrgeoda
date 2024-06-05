@@ -7,6 +7,7 @@
 
 ![CRAN](https://www.r-pkg.org/badges/version/tidyrgeoda)
 ![r-universe](https://spatlyu.r-universe.dev/badges/tidyrgeoda)
+
 <!-- badges: end -->
 
 The goal of **tidyrgeoda** is to provide an interface for **rgeoda** to
