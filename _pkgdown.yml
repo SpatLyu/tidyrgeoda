@@ -1,4 +1,7 @@
 url: https://spatlyu.github.io/tidyrgeoda
+template:
+  bootstrap: 5
+  bootswatch: solar
 
 on:
   push:
