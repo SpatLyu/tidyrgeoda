@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# tidyrgeoda <img src="man/figures/logo.png" align="right" height="140"/>
+# tidyrgeoda <img src="man/figures/logo.png" align="right" height="100"/>
 
 <!-- badges: start -->
 
