@@ -1,7 +1,7 @@
 url: https://spatlyu.github.io/tidyrgeoda
 template:
   bootstrap: 5
-  bootswatch: solar
+  bootswatch: sandstone
 
 on:
   push:
@@ -43,6 +43,6 @@ authors:
     href: https://spatlyu.github.io/
 
 logo:
-    width: 90
-    height: 90
+    width: 75
+    height: 75
 
