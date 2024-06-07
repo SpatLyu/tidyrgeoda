@@ -1,7 +1,7 @@
 url: https://spatlyu.github.io/tidyrgeoda
 template:
   bootstrap: 5
-  bootswatch: pulse
+  bootswatch: sketchy
 
 on:
   push:
