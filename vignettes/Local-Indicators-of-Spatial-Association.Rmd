@@ -17,8 +17,6 @@ knitr::opts_chunk$set(echo = TRUE,
                       comment = "##")
 ```
 
-<img src="../man/figures/logo.png" align="right" height="175"/>
-
 `tidyrgeoda` provides following methods for local spatial autocorrelation statistics by invoking `rgeoda`:
 
 * Local Moran: `st_local_moran()`, `st_local_moran_eb()`, `st_local_bimoran()`
