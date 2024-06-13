@@ -328,7 +328,7 @@ read_geoda =\(file_path,id_vec = NULL){
 #'
 #' @param wt A Weight object
 #' @param dsn The path of an output weights file
-#' @param layer (optional) The name of the layer of input dataset,efault is `""`.
+#' @param layer (optional) The name of the layer of input dataset,default is `""`.
 #' @param id_vec (optional) Defines the unique value of each observation when saving a
 #' weights file. Default is `tibble::tibble(id_v = 1:wt$num_obs)`.
 #'

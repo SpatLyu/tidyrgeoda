@@ -28,7 +28,7 @@
 #' The subdistrict boundary is drawn by with reference to the Atlas of  Community Network ResponsibilityDistrict of  Urban Management  Division in Guangzhou.
 #'
 #' @name gzma
-#' @format \code{gsma}: An `sf` tibble of social space quality score in guangzhou metropolitan
+#' @format \code{gzma}: An `sf` tibble of social space quality score in guangzhou metropolitan
 #' areas(2010) with 118 rows and 32 variables, where the last column is `geometry`.
 #'
 #' @docType data
