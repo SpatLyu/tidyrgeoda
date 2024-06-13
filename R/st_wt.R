@@ -292,7 +292,7 @@ st_summary = \(wt, ...) {
 #' @importFrom rgeoda read_gwt
 #' @importFrom rgeoda read_swm
 #' @export
-read_geoda =\(file_path,id_vec = NULL){
+read_geoda = \(file_path,id_vec = NULL){
   filetype = stringr::str_sub(file_path,-3,-1) %>%
     stringr::str_to_lower()
   switch (filetype,
@@ -328,17 +328,17 @@ read_geoda =\(file_path,id_vec = NULL){
 #'
 #' @param wt A Weight object
 #' @param dsn The path of an output weights file
-#' @param layer (optional) The name of the layer of input dataset,default is `""`.
 #' @param id_vec (optional) Defines the unique value of each observation when saving a
 #' weights file. Default is `tibble::tibble(id_v = 1:wt$num_obs)`.
+#' @param layer (optional) The name of the layer of input dataset,default is `"tbf"`.
 #'
 #' @return A boolean value indicates if save successfully or failed
 #' @importFrom tibble tibble
 #' @importFrom rgeoda save_weights
 #' @export
-write_geoda = \(wt,dsn,layer = NULL,id_vec = NULL){
+write_geoda = \(wt,dsn,id_vec = NULL,layer = NULL){
   stopifnot("wt must be `Weight` object" = inherits(wt,"Weight"))
-  if (is.null(layer)) {layer = ""}
+  if (is.null(layer)) {layer = "tbf"}
   if (is.null(id_vec)) {id_vec = tibble::tibble(id_v = 1:wt$num_obs)}
   rgeoda::save_weights(wt,id_vec,dsn,layer)
 }

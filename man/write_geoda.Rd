@@ -4,17 +4,17 @@
 \alias{write_geoda}
 \title{Save Spatial Weights}
 \usage{
-write_geoda(wt, dsn, layer = NULL, id_vec = NULL)
+write_geoda(wt, dsn, id_vec = NULL, layer = NULL)
 }
 \arguments{
 \item{wt}{A Weight object}
 
 \item{dsn}{The path of an output weights file}
 
-\item{layer}{(optional) The name of the layer of input dataset,default is \code{""}.}
-
 \item{id_vec}{(optional) Defines the unique value of each observation when saving a
 weights file. Default is \code{tibble::tibble(id_v = 1:wt$num_obs)}.}
+
+\item{layer}{(optional) The name of the layer of input dataset,default is \code{"tbf"}.}
 }
 \value{
 A boolean value indicates if save successfully or failed
