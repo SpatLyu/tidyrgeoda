@@ -5,7 +5,7 @@
 \alias{gzma}
 \title{Guangzhou Metropolitan Social Space Quality Score Data}
 \format{
-\code{gsma}: An \code{sf} tibble of social space quality score in guangzhou metropolitan
+\code{gzma}: An \code{sf} tibble of social space quality score in guangzhou metropolitan
 areas(2010) with 118 rows and 32 variables, where the last column is \code{geometry}.
 }
 \usage{

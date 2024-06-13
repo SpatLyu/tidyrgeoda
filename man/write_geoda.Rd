@@ -11,7 +11,7 @@ write_geoda(wt, dsn, layer = NULL, id_vec = NULL)
 
 \item{dsn}{The path of an output weights file}
 
-\item{layer}{(optional) The name of the layer of input dataset,efault is \code{""}.}
+\item{layer}{(optional) The name of the layer of input dataset,default is \code{""}.}
 
 \item{id_vec}{(optional) Defines the unique value of each observation when saving a
 weights file. Default is \code{tibble::tibble(id_v = 1:wt$num_obs)}.}
