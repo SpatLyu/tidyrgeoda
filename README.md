@@ -15,14 +15,16 @@ integrate with **sf** objects and the **tidyverse**.
 
 ## Installation
 
-You can install the development version of `tidyrgeoda` from `github`:
+You can install the development version of **tidyrgeoda** from
+[github](https://github.com/SpatLyu/tidyrgeoda):
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("SpatLyu/tidyrgeoda",build_vignettes = T,dep = T)
 ```
 
-or install `tidyrgeoda` from `r-universe`:
+or install **tidyrgeoda** from
+[r-universe](https://spatlyu.r-universe.dev/tidyrgeoda):
 
 ``` r
 install.packages('tidyrgeoda', repos='https://spatlyu.r-universe.dev')
@@ -54,7 +56,7 @@ library(tidyverse)
 
 ``` r
 library(tidyrgeoda)
-## Welcome to tidyrgeoda 0.1.0!
+## Welcome to tidyrgeoda 0.1.1!
 ```
 
 ``` r
