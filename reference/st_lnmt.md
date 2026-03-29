@@ -1,0 +1,91 @@
+# Local Neighbor Match Test
+
+The local neighbor match test is to assess the extent of overlap between
+k-nearest neighbors in geographical space and k-nearest neighbors in
+multi-attribute space.
+
+## Usage
+
+``` r
+st_lnmt(
+  sfj,
+  varcol,
+  k,
+  unit = "km",
+  scale_method = "standardize",
+  distance_method = "euclidean",
+  power = 1,
+  is_inverse = FALSE
+)
+```
+
+## Arguments
+
+- sfj:
+
+  An sf (simple feature) object.
+
+- varcol:
+
+  The variables selected to run local neighbor match test.
+
+- k:
+
+  A positive integer number for k-nearest neighbors searching.
+
+- unit:
+
+  (optional) The unit for calculating spatial distance, can be
+  'km'(default) or 'mile'.
+
+- scale_method:
+
+  (optional) One of the scaling methods 'raw', 'standardize', 'demean',
+  'mad', 'range_standardize', 'range_adjust' to apply on input data.
+  Default is 'standardize' (Z-score normalization).
+
+- distance_method:
+
+  (optional) The type of distance metrics used to measure the distance
+  between input data. Options are 'euclidean', 'manhattan'. Default is
+  'euclidean'.
+
+- power:
+
+  (optional) The power (or exponent) of a number says how many times to
+  use the number in a multiplication.
+
+- is_inverse:
+
+  (optional) FALSE (default) or TRUE, apply inverse on distance value.
+
+## Value
+
+A tibble with two columns "Cardinality" and "Probability".
+
+## Author
+
+Wenbo Lv <lyu.geosocial@gmail.com>
+
+## Examples
+
+``` r
+library(sf)
+guerry = read_sf(system.file("extdata","Guerry.shp",package = "rgeoda"))
+st_lnmt(guerry,c('Crm_prs','Crm_prp','Litercy','Donatns',
+'Infants','Suicids'),6)
+#> # A tibble: 85 × 2
+#>    Cardinality Probability
+#>          <int>       <dbl>
+#>  1           2     0.0526 
+#>  2           3     0.00374
+#>  3           2     0.0526 
+#>  4           2     0.0526 
+#>  5           0    NA      
+#>  6           1     0.312  
+#>  7           1     0.312  
+#>  8           2     0.0526 
+#>  9           3     0.00374
+#> 10           1     0.312  
+#> # ℹ 75 more rows
+```
